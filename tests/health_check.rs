@@ -4,7 +4,7 @@ use std::net::TcpListener;
 async fn health_check_works() {
     let address = spawn_app();
     let client = reqwest::Client::new();
-    
+
     let response = client
         .get(&format!("{}/health_check", &address))
         .send()
@@ -40,7 +40,7 @@ async fn subscribe_returns_a_400_for_missing_data() {
     let test_cases = vec![
         ("name=le%20guin", "missing the email"),
         ("email=ursula_le_guin%40gmail.com", "missing the name"),
-        ("", "missing both the email and name")
+        ("", "missing both the email and name"),
     ];
 
     for (invalid_body, error_message) in test_cases {
@@ -53,8 +53,11 @@ async fn subscribe_returns_a_400_for_missing_data() {
             .expect("Failed to execute request.");
 
         assert_eq!(
-            400, response.status().as_u16(), 
-            "The API did not fail with 400 Bad Request when the payload was {}", error_message);
+            400,
+            response.status().as_u16(),
+            "The API did not fail with 400 Bad Request when the payload was {}",
+            error_message
+        );
     }
 }
 
