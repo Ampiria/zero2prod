@@ -1,0 +1,8 @@
+.env
+tests/
+target/
+.git/
+Cargo.lock
+Dockerfile
+scripts/
+migrations/
