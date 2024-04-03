@@ -20,6 +20,7 @@ once_cell = "1"
 reqwest = "0.12.2"
 secrecy = { version = "0.8", features = ["serde"] }
 serde = { version = "1", features = ["derive"] }
+serde-aux = "4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 tokio-macros = "2.2.0"
 tracing = { version = "0.1", features = ["log"] }
